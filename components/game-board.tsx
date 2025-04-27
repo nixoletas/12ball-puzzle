@@ -43,7 +43,7 @@ export default function GameBoard() {
     weight: "heavy" | "light";
   }>({ id: 0, weight: "heavy" });
 
-  // Initialize the game
+  // Initialize the gamemt-4 flex gap-4
   useEffect(() => {
     resetGame();
   }, []);
@@ -227,7 +227,7 @@ export default function GameBoard() {
           balls={balls}
         />
 
-        <div className="mt-4 flex gap-4">
+        <div className="mt-8 py-8 flex gap-4">
           <Button onClick={weighBalls} disabled={gameOver || weighings >= 3}>
             Weigh Balls
           </Button>
@@ -241,13 +241,10 @@ export default function GameBoard() {
       </div>
 
       <div
-        className="grid w-full grid-cols-6 gap-4 rounded-lg bg-slate-200 p-4 dark:bg-slate-700 sm:grid-cols-12"
+        className="flex gap-4 rounded-lg bg-slate-200 p-4 dark:bg-slate-700 sm:grid-cols-12"
         onDrop={(e) => handleDrop(e, "tray")}
         onDragOver={handleDragOver}
       >
-        <h3 className="col-span-full mb-2 text-center text-lg font-medium">
-          Ball Tray
-        </h3>
         {balls.map(
           (ball) =>
             ball.location === "tray" && (
